@@ -1,6 +1,7 @@
 # quiz_app_test
 
-A new Flutter project.
+- 두번째로 만들어보는 플러터 프로젝트
+- 메이저 버전도 3.x 로 변경되었다.
 
 ## Getting Started
 
