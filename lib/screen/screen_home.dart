@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_test/model/model_quiz.dart';
+import 'package:quiz_app_test/screen/screen_quiz.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,6 +8,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // 퀴즈 더미들을 생성해서 퀴즈 화면으로 넘겨준다.
+  List<Quiz> quizs = [
+    Quiz.fromMap({
+      'title': 'test',
+      'candidates': ['a', 'b', 'c', 'd'],
+      'answer': 0
+    }),
+    Quiz.fromMap({
+      'title': 'test',
+      'candidates': ['a', 'b', 'c', 'd'],
+      'answer': 0
+    }),
+    Quiz.fromMap({
+      'title': 'test',
+      'candidates': ['a', 'b', 'c', 'd'],
+      'answer': 0
+    }),
+  ];
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -60,7 +81,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuizScreen(
+                            quizs: quizs,
+                          ),
+                        ),
+                      );
+                    },
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all<Color>(
                           Colors.deepPurple), // Change button color
